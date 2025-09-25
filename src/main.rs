@@ -98,7 +98,7 @@ impl eframe::App for MyApp {
                 "Input",
                 (0..self.input_signal.len())
                     .map(|i| [i as f64, self.input_signal[i]])
-                    .collect::<Vec<_>>(), // Vec<[f64; 2]> now
+                    .collect::<Vec<_>>(),
             );
 
             Plot::new("Input Signal").show(ui, |plot_ui| {
