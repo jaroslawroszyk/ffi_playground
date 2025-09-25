@@ -1,6 +1,7 @@
 use eframe::egui;
 use egui_plot::{Line, Plot};
-
+use std::ffi::CString;
+use std::os::raw::c_char;
 use std::os::raw::c_double;
 
 unsafe extern "C" {
@@ -11,9 +12,16 @@ unsafe extern "C" {
         out_imag: *mut c_double,
         n: i32,
     );
+
+    fn hello_from_c(name: *const c_char);
+
 }
 
 fn main() -> eframe::Result<()> {
+    unsafe {
+        let name = CString::new("Jarek").unwrap();
+        hello_from_c(name.as_ptr());
+    }
     let options = eframe::NativeOptions::default();
     eframe::run_native(
         "Interactive FFT Demo",
