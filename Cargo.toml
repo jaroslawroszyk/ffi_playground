@@ -5,7 +5,9 @@ edition = "2024"
 build = "build.rs"
 
 [dependencies]
-libc = "0.2.176"
+eframe = "0.32.3"
+egui = "0.32.3"  # plot feature not available here
+egui_plot = "0.33.0"
 
 
 [build-dependencies]
