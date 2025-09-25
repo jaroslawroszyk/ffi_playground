@@ -1,5 +1,6 @@
 fn main() {
     cc::Build::new()
-        .file("c_libary/lib.c") // poprawiona ścieżka
-        .compile("hello");
+        .cpp(true)
+        .file("c_libary/point_cloud.cpp")
+        .compile("pointcloud");
 }
